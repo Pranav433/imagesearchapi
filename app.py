@@ -19,7 +19,8 @@ def imagesearchhandler(query,num):
         error = {"error":"failed to get image"}
         return jsonify(error)
 
-
+if __name__ == "__main__":
+    app.run()
 
 
 
