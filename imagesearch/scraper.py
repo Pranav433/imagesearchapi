@@ -2,12 +2,11 @@ from selenium import webdriver
 import time
 import os
 chrome_options = webdriver.ChromeOptions()
-chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
 chrome_options.add_argument("--headless")
 chrome_options.add_argument("--disable-dev-shm-usage")
 chrome_options.add_argument("--no-sandbox")
-
-wd = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"),chrome_options=chrome_options)
+DRIVER_PATH = "./driver/chromedriver"
+wd = webdriver.Chrome(executable_path=DRIVER_PATH,chrome_options=chrome_options)
 def fetch_image_urls(query:str, max_links_to_fetch:int, wd:webdriver=wd, sleep_between_interactions:int=1):
     def scroll_to_end(wd):
         wd.execute_script("window.scrollTo(0, document.body.scrollHeight);")
